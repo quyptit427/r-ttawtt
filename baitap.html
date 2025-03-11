@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngô Vũ Minh Quý - Data Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .cv-header {
+            display: flex;
+            background-color: #1a3a5a;
+            color: white;
+            padding: 20px;
+        }
+
+        .profile-section {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .contact-title {
+            margin: 15px 0 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .header-main {
+            width: 70%;
+            padding-left: 20px;
+        }
+
+        .name {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .name span {
+            font-weight: 700;
+        }
+
+        .job-title {
+            font-size: 14px;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .new-badge {
+            background-color: #00a8ff;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 30%;
+            background-color: #1a3a5a;
+            color: white;
+            padding: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .contact-info i {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .year {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 3px;
+        }
+
+        .school-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .degree {
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            align-items: center;
+        }
+
+        .skill-name {
+            font-size: 13px;
+        }
+
+        .skill-level {
+            display: flex;
+        }
+
+        .skill-dot {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+            margin-left: 3px;
+        }
+
+        .skill-dot.filled {
+            background-color: white;
+        }
+
+        .skill-dot.empty {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .language-item {
+            margin-bottom: 8px;
+        }
+
+        .language-name {
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .language-level {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .content {
+            width: 70%;
+            padding: 20px;
+        }
+
+        .content-section {
+            margin-bottom: 25px;
+        }
+
+        .content p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .job-title-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .job-date {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .company-name {
+            font-size: 14px;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .job-description {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+            list-style-position: inside;
+        }
+
+        .other-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #444;
+        }
+
+        /* Contact Form Styles */
+        .contact-form-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        button[type="submit"] {
+            background-color: #1a3a5a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #132c45;
+        }
+
+        #success-message {
+            display: none;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 3px;
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Tab Styles */
+        .tabs {
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .tab.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .cv-header, .main-content {
+                flex-direction: column;
+            }
+            .profile-section, .header-main, .sidebar, .content {
+                width: 100%;
+            }
+            .header-main {
+                padding-left: 0;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cv-header">
+            <div class="profile-section">
+                <img src="anhemminhtran.png" alt="Profile Photo" class="profile-img">
+                <div class="contact-title">LIÊN LẠC</div>
+            </div>
+            <div class="header-main">
+                <div class="name">NGÔ VŨ MINH <span>QUÝ</span> <span class="new-badge">NEW</span></div>
+                <div class="job-title">Data Engineer</div>
+                <div class="section-title">Mục tiêu nghề nghiệp</div>
+                <p>Tôi là một Data Engineer có đam mê trong việc xây dựng nền tảng quản trị và xử lý dữ liệu, và đạt được mục tiêu kinh doanh. Mục tiêu của tôi là phát triển kỹ năng trong lĩnh vực xử lý dữ liệu lớn, sử dụng kỹ năng giải quyết vấn đề và khả năng truyền đạt để tiếp cận các khách hàng và đồng ghép với sự thành công của tổ chức.</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="resume">Hồ Sơ</div>
+            <div class="tab" data-tab="contact">Liên Hệ</div>
+        </div>
+
+        <div class="tab-content active" id="resume-tab">
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <div class="contact-info">
+                            <i>📱</i> 0332774786
+                        </div>
+                        <div class="contact-info">
+                            <i>📧</i> quyvip130@gmail.com
+                        </div>
+                        <div class="contact-info">
+                            <i>🎂</i> 29/10/2004
+                        </div>
+                        <div class="contact-info">
+                            <i>📍</i> Yên xá, Hà đông
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">HỌC VẤN</div>
+                        <div class="education-item">
+                            <div class="year">2022 - 2027</div>
+                            <div class="school-name">Học viện công nghệ bưu chính viễn thông</div>
+                            <div class="degree">• Master of Data Science</div>
+                            <div class="degree">• Loại tốt nghiệp: Khá</div>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">TIN HỌC</div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-level">
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL</div>
+                            <div class="skill-level">
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Spark</div>
+                            <div class="skill-level">
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot empty"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">AWS</div>
+                            <div class="skill-level">
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot empty"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-level">
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot filled"></div>
+                                <div class="skill-dot empty"></div>
+                                <div class="skill-dot empty"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">NGOẠI NGỮ</div>
+                        <div class="language-item">
+                            <div class="language-name">Tiếng Anh <span class="language-level">Thành thạo</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="content-section">
+                        <div class="section-title">Kinh nghiệm làm việc</div>
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div class="job-title-name">Data Engineer</div>
+                                <div class="job-date">03/2019 - hiện tại</div>
+                            </div>
+                            <div class="company-name">Tech Solutions Inc.</div>
+                            <ul class="job-description">
+                                <li>Phát triển và duy trì các pipeline ETL, xử lý và phân tích dữ liệu lớn sử dụng Apache Spark, Airflow, và Python.</li>
+                                <li>Thiết kế và tối ưu hóa cơ sở dữ liệu, kho dữ liệu và data lake.</li>
+                                <li>Xây dựng hệ thống báo cáo và dashboard sử dụng Tableau và PowerBI.</li>
+                                <li>Hợp tác với các data scientist để triển khai các mô hình machine learning vào production.</li>
+                                <li>Tham gia vào quá trình tự động hóa và CI/CD cho data pipeline.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="section-title">Kỹ năng khác</div>
+                        <div class="other-skills">
+                            <div class="skill-tag">Big Data Processing</div>
+                            <div class="skill-tag">Data Modeling</div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="section-title">Dự án tiêu biểu</div>
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div class="job-title-name">Hệ thống phân tích dữ liệu khách hàng</div>
+                                <div class="job-date">2021 - 2022</div>
+                            </div>
+                            <ul class="job-description">
+                                <li>Thiết kế và triển khai data warehouse trên AWS Redshift</li>
+                                <li>Xây dựng pipeline ETL sử dụng Apache Airflow và Python</li>
+                                <li>Phát triển dashboard trực quan hóa dữ liệu với Tableau</li>
+                                <li>Kết quả: Giảm 40% thời gian xử lý dữ liệu, tăng 25% chuyển đổi khách hàng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="contact-tab">
+            <div class="contact-form-section">
+                <h2 class="section-title">Liên Hệ Với Tôi</h2>
+                <p>Vui lòng điền thông tin bên dưới để gửi tin nhắn cho tôi. Tôi sẽ liên hệ lại sớm nhất có thể.</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Họ và tên *</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="error-message" id="name-error">Vui lòng nhập họ và tên của bạn</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="email-error">Vui lòng nhập email hợp lệ</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="tel" id="phone" name="phone">
+                        <div class="error-message" id="phone-error">Vui lòng nhập số điện thoại hợp lệ</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Tiêu đề *</label>
+                        <input type="text" id="subject" name="subject" required>
+                        <div class="error-message" id="subject-error">Vui lòng nhập tiêu đề</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Nội dung tin nhắn *</label>
+                        <textarea id="message" name="message" required></textarea>
+                        <div class="error-message" id="message-error">Vui lòng nhập nội dung tin nhắn</div>
+                    </div>
+                    
+                    <button type="submit">Gửi tin nhắn</button>
+                </form>
+                
+                <div id="success-message">
+                    <strong>Cảm ơn bạn!</strong> Tin nhắn của bạn đã được gửi thành công. Tôi sẽ liên hệ lại sớm nhất có thể.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to current tab and content
+                tab.classList.add('active');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // Form validation
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset previous error messages
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => msg.style.display = 'none');
+            
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('name');
+            if (!name.value.trim()) {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate phone (optional)
+            const phone = document.getElementById('phone');
+            if (phone.value.trim()) {
+                const phoneRegex = /^[0-9+\-\s]{10,15}$/;
+                if (!phoneRegex.test(phone.value)) {
+                    document.getElementById('phone-error').style.display = 'block';
+                    isValid = false;
+                }
+            }
+            
+            // Validate subject
+            const subject = document.getElementById('subject');
+            if (!subject.value.trim()) {
+                document.getElementById('subject-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate message
+            const message = document.getElementById('message');
+            if (!message.value.trim()) {
+                document.getElementById('message-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // If valid, show success message
+            if (isValid) {
+                // Simulating email sending
+                console.log("Form submitted successfully");
+                console.log({
+                    name: name.value,
+                    email: email.value,
+                    phone: phone.value,
+                    subject: subject.value,
+                    message: message.value
+                });
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
